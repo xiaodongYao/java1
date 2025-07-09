@@ -1,11 +1,16 @@
+import org.lwjgl.opengl.Display;
+
 import java.util.ArrayList;
 
 public class Game {
 
     private ArrayList<GameObject> objects;
-    public Game()
-    {
+
+    public Game() {
         objects = new ArrayList<GameObject>();
+
+        GOBall ball = new GOBall((float) (Display.getWidth() / 2 - GOBall.SIZE / 2), (float) (Display.getHeight() / 2 - GOBall.SIZE / 2));
+        objects.add(ball);
     }
 
     public void getInput() {
