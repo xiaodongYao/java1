@@ -10,9 +10,9 @@ public class Game {
         objects = new ArrayList<GameObject>();
 
         GOBall ball = new GOBall((float) (Display.getWidth() / 2 - GOBall.SIZE / 2), (float) (Display.getHeight() / 2 - GOBall.SIZE / 2));
-        objects.add(ball);
-
         GOPlayer player = new GOPlayer(0, (float) (Display.getHeight() / 2 - GOPlayer.SIZEY / 2));
+
+        objects.add(ball);
         objects.add(player);
     }
 
