@@ -29,6 +29,6 @@ public abstract class GameObject {
     }
 
     public float getCenterY() {
-        return (y + sy) / 2;
+        return y + sy / 2;
     }
 }

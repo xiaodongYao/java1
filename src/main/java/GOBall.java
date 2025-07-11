@@ -3,6 +3,7 @@ public class GOBall extends GameObject {
 
     public static final float MAX_SPEEDX = 4.0f;
     public static final float MAX_SPEEDY = 8.0f;
+    public static final float DAMPING = 0.05f;
 
     public float velX;
     public float velY;
@@ -21,5 +22,17 @@ public class GOBall extends GameObject {
     void update() {
         x += velX;
         y += velY;
+    }
+
+    public void reverseX(float center) {
+        velX *= -1;
+        velY += (getCenterY() - center) * DAMPING;
+
+        if (velY > MAX_SPEEDY) {
+            velY = MAX_SPEEDY;
+        }
+        if (velY < -MAX_SPEEDY) {
+            velY = -MAX_SPEEDY;
+        }
     }
 }
