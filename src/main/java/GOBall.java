@@ -8,9 +8,16 @@ public class GOBall extends GameObject {
     public float velX;
     public float velY;
 
+    public float startX;
+    public float startY;
+
     public GOBall(float x, float y) {
         this.x = x;
         this.y = y;
+
+        startX = x;
+        startY = y;
+
         this.sx = SIZE;
         this.sy = SIZE;
 
@@ -24,6 +31,14 @@ public class GOBall extends GameObject {
         y += velY;
     }
 
+    public void resetPosition() {
+        x = startX;
+        y = startY;
+
+        velY = 0;
+        velX *= -1;
+    }
+
     public void reverseX(float center) {
         velX *= -1;
         velY += (getCenterY() - center) * DAMPING;
@@ -34,5 +49,9 @@ public class GOBall extends GameObject {
         if (velY < -MAX_SPEEDY) {
             velY = -MAX_SPEEDY;
         }
+    }
+
+    public void reverseY() {
+        velY *= -1;
     }
 }
